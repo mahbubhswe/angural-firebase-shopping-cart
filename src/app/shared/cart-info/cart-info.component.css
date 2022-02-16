@@ -1,0 +1,35 @@
+.cart-body{
+padding-bottom: 100px;
+}
+
+.mat-card{
+  width:80%;
+  height:auto;
+  margin:auto;
+}
+.mat-card-title{
+  text-align:center;
+  color: gray;
+}
+.cartItems{
+  border:1px solid #ccc;
+  margin:5px 0px;
+  border-radius:5px;
+  padding:3px;
+}
+
+.mat-card-content{
+  padding:10px 0px;
+}
+.cartProperty{
+  display:flex;
+  justify-content:space-between;
+  margin:5px 0px;
+  padding:0px 20px;
+}
+.cartPropertyValue{
+  display:flex;
+  justify-content:space-between;
+  margin:5px 0px;
+  padding:0px 20px;
+}

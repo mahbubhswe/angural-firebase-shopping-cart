@@ -1,0 +1,24 @@
+<div class="form-design">
+  <h1>Add new fruit</h1>
+  <input type="file" name="file" id="file" (change)="isPhoto($event)">
+  <mat-progress-bar mode="determinate" value="{{uploadPercent | async}}" ></mat-progress-bar>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Select an option</mat-label>
+    <mat-select disableRipple [(ngModel)]="fruitCategory">
+      <mat-option value="Apple">Apple</mat-option>
+      <mat-option value="Orange">Orange</mat-option>
+      <mat-option value="Banana">Banana</mat-option>
+      <mat-option value="Mango">Mango</mat-option>
+      <mat-option value="Pineapple">Pineapple</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Fruit price</mat-label>
+    <input type="text" placeholder="Fruit name" matInput [(ngModel)]="fruitPrice">
+  </mat-form-field>
+  <br>
+  <button [disabled]="!fruitCategory || !fruitPrice || !photoStatus" mat-raised-button color="primary" (click)="upload($event)">Add fruit</button>
+
+</div>

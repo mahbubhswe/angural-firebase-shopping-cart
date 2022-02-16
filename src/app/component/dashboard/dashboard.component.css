@@ -1,0 +1,22 @@
+img{
+  height:100px;
+  width:100px;
+  border-radius:50%;
+}
+.profile{
+  width: 100%;
+  text-align:center;
+  padding:10px 0px;
+}
+.mat-drawer-container{
+  min-height: 100%;
+  padding-top:30px
+}
+.mat-drawer{
+  width: 16%;
+}
+.option{
+  width:100%;
+  text-align: right;
+}
+

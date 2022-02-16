@@ -1,0 +1,9 @@
+.form-design{
+  width:60%;
+  margin:auto;
+  background-color: papayawhip;
+  padding:10px;
+  border-radius: 5px;
+  display:grid;
+  place-content: center;
+}

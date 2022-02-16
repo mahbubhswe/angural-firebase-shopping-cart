@@ -1,0 +1,27 @@
+<div class="search">
+  <mat-form-field style="width:50%" appearance="outline" color="primary">
+    <mat-label>Search by price</mat-label>
+    <input type="text" matInput>
+    <button matSuffix mat-icon-button matTooltip="Search fruit"><mat-icon>search</mat-icon></button>
+  </mat-form-field>
+</div>
+
+<div class="items-container">
+
+  <div *ngFor="let fruit of fruitList">
+
+    <div *ngIf="fruit.fruitCategory == 'Banana'">
+
+      <mat-card>
+        <mat-card-title>Price: {{fruit.fruitPrice}} tk</mat-card-title>
+        <img mat-card-image src="{{fruit.fruitPhoto}}" height="70%" width="80%">
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="addCart(fruit)" matTooltip="Click">Add to cart</button>
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+
+  </div>
+
+</div>

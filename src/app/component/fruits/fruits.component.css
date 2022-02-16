@@ -1,0 +1,37 @@
+.mat-toolbar{
+  //background-color: whitesmoke;
+  //background-color: #3F51B5;
+  background-color: crimson;
+  //background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.siteTitle{
+  text-align: center;
+  padding-top: 20px;
+  color:white;
+  font-family: "Lucida Fax";
+  font-weight: bolder;
+}
+.mat-drawer-container{
+  min-height: 100%;
+  padding-top:30px
+}
+.mat-drawer{
+  width:13%;
+}
+
+
+.shoppingCart{
+  width:100%;
+  padding-right: 30px;
+  text-align:right;
+}
+.cart{
+  font-size: 30px;
+}
+
+.changeBG{
+  background-color: #223;
+}
+

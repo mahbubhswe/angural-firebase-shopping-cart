@@ -1,0 +1,110 @@
+<div class="paymentPageHeader">
+  Online Fruit Shope
+</div>
+<mat-card *ngIf="ifTrue;else this.thanksMsg" style="width:80%;margin:auto;background-color:#F2F2F2;height:auto;">
+  <h1 style="text-align:center">Payment System</h1>
+  <mat-divider></mat-divider>
+  <br>
+  <br>
+<div style="display:flex;flex-wrap: wrap;">
+  <div style="flex:45%">
+    <h3 style="text-align:center;color:gray">Shipping Address</h3>
+    <mat-icon>person</mat-icon>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Full Name</mat-label>
+      <input type="text" matInput [(ngModel)]="customerName">
+    </mat-form-field>
+    <br>
+    <mat-icon>phone</mat-icon>
+    <br>
+    <mat-form-field appearance="outline" color="primary">
+      <mat-label>Phone</mat-label>
+      <input type="tel" ng2TelInput value="01623218618" matInput [(ngModel)]="customerPhone">
+    </mat-form-field>
+    <br>
+    <mat-icon>home</mat-icon>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input type="text" matInput [(ngModel)]="customerAddress">
+    </mat-form-field>
+
+  </div>
+  <div style="flex:35%;margin-left: 15%">
+    <h3 style="text-align:center;color:gray">Payment</h3>
+    <div style="font-weight: bolder;color:green">
+      <input type="checkbox" name="checkbox" [(ngModel)]="isChecked">
+      Cash on delivery
+    </div>
+    <google-pay-button *ngIf="isChecked === false; else this.cashOnDalivery"
+      environment="TEST"
+      buttonType="buy"
+      buttonColor="black"
+      [paymentRequest]="{
+    apiVersion: 2,
+    apiVersionMinor: 0,
+    allowedPaymentMethods: [
+      {
+        type: 'CARD',
+        parameters: {
+          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+          allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD']
+        },
+        tokenizationSpecification: {
+          type: 'PAYMENT_GATEWAY',
+          parameters: {
+            gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId'
+          }
+        }
+      }
+    ],
+    merchantInfo: {
+      merchantId: '12345678901234567890',
+      merchantName: 'Demo Merchant'
+    },
+    transactionInfo: {
+      totalPriceStatus: 'FINAL',
+      totalPriceLabel: 'Total',
+      totalPrice: '100.00',
+      currencyCode: 'USD',
+      countryCode: 'US'
+    }
+  }"
+    >
+    </google-pay-button>
+    <ng-template #cashOnDalivery>
+      <mat-icon>attach_money</mat-icon>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Payable amount in cart</mat-label>
+        <input type="number" matInput readonly value="{{amountInCart}}">
+      </mat-form-field>
+      <br>
+      <mat-icon>local_shipping</mat-icon>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Delivery charge</mat-label>
+        <input type="text" matInput readonly value="50">
+      </mat-form-field>
+      <br>
+      <mat-icon>payment</mat-icon>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Total payable amount</mat-label>
+        <input type="number" matInput readonly value="{{amountInCart + 50}}">
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button color="warn" style="text-transform: capitalize" (click)="goBackFromPayment()">Cancle</button>
+        <button mat-raised-button [disabled]="!customerName || !customerPhone || !customerAddress" (click)="orderConfirmed()" color="primary" style="text-transform: capitalize">Confirm order</button>
+      </mat-card-actions>
+
+
+    </ng-template>
+  </div>
+</div>
+</mat-card>
+<ng-template #thanksMsg>
+  <p>Thanks for your order...!</p>
+</ng-template>

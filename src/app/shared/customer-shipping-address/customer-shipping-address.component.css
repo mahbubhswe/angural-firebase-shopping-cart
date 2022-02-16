@@ -1,0 +1,28 @@
+.mat-form-field{
+  width:100%
+}
+.mat-card{
+  border:1px solid #ccc;
+}
+.paymentPageHeader{
+  text-align:center;
+  font-weight:bolder;
+  color:wheat;
+  line-height:80px;
+  font-size:30px;
+  text-shadow:1px 2px;
+  background-color: crimson;
+  height:80px;
+  margin-bottom: 25px;
+}
+
+p{
+  width:80%;
+  margin:auto;
+  background-color:#CCE5FF;
+  font-weight:normal;
+  border-radius:5px;
+  color:#004085;
+  border:1px solid #CCE5FF;
+  padding:13px;
+}

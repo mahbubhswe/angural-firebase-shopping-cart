@@ -1,0 +1,36 @@
+
+<mat-toolbar color="primary">
+
+  <mat-toolbar-row>
+    <button mat-icon-button matTooltip="Switch menu" (click)="this.matDrawer.toggle()"><mat-icon>menue</mat-icon></button>
+    <button mat-icon-button matTooltip="Home" (click)="goToHome()"><mat-icon>home</mat-icon></button>
+    <div class="option">
+      <button mat-icon-button matTooltip="Settings"><mat-icon>settings</mat-icon></button>
+      <button mat-icon-button matTooltip="Logout"><mat-icon>person_outline</mat-icon></button>
+    </div>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+<mat-drawer-container>
+
+  <mat-drawer opened mode="side" #matDrawer>
+<div class="profile">
+  <h2>Mahbub Hasan</h2>
+  <h5>example@gmail.com</h5>
+  <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+</div>
+
+    <mat-divider></mat-divider>
+    <mat-selection-list multiple="false">
+      <mat-list-option routerLink="add-new-item">Add new fruit</mat-list-option>
+    </mat-selection-list>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+
+</mat-drawer-container>
+

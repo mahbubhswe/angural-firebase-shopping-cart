@@ -1,0 +1,41 @@
+<div class="cart-body">
+
+  <mat-card *ngIf="cartItems">
+
+    <mat-card-title>
+      Your Cart Details
+    </mat-card-title>
+
+    <mat-divider></mat-divider>
+
+<mat-card-content>
+  <h4 class="cartProperty">
+    <p>Photo</p>
+    <p>Price</p>
+    <p>Quantity</p>
+    <p>Sub Total</p>
+    <p>Action</p>
+  </h4>
+  <div class="cartItems" *ngFor="let cartItem of cartItems">
+   <div class="cartPropertyValue">
+     <img src="{{cartItem.fruitPhoto}}" height="80px;" width="100px">
+     <p>{{cartItem.fruitPrice}}</p>
+     <p> <button mat-icon-button (click)="decreaseQty(cartItem.id, cartItem.fruitQty)"><mat-icon>remove_circle</mat-icon></button>
+     {{cartItem.fruitQty}}
+     <button mat-icon-button (click)="increaseQty(cartItem.id, cartItem.fruitQty)"><mat-icon>add_circle</mat-icon></button>
+     </p>
+     <p>{{cartItem.fruitPrice * cartItem.fruitQty}}</p>
+     <button mat-icon-button color="warn" (click)="removeItem(cartItem.id)" matTooltip="Remove this item"><mat-icon>delete</mat-icon></button>
+   </div>
+  </div>
+</mat-card-content>
+    <p style="padding:5px;border:1px solid #ccc;color:gray;border-radius:5px;font-weight: bolder">Total amount: {{cartTotal}} tk</p>
+
+    <mat-card-actions>
+      <button (click)="clearCart()" mat-raised-button color="warn" matTooltip="Clear your cart"><mat-icon>remove_shopping_cart</mat-icon>Clear cart</button>
+      <button  mat-raised-button color="primary" matTooltip="Checkout"  (click)="openPaymentSystem()" routerLink="payment-system"><mat-icon>payment</mat-icon> Checkout</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+</div>
